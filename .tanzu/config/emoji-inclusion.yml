@@ -2,14 +2,22 @@ apiVersion: apps.tanzu.vmware.com/v1
 kind: ContainerApp
 metadata:
   creationTimestamp: null
-  name: inclusion
+  name: emoji-inclusion
 spec:
+  acceptedServiceBindings:
+  - name: db
+    types:
+    - postgresql
   build:
     buildpacks: {}
     nonSecretEnv:
     - name: BP_JVM_VERSION
-      value: "21" #change it to v17 as an example
+      value: "21"
     path: ../..
+  contact:
+    email: me@here.com
+    slack: viktor
+    team: viktorious
   nonSecretEnv:
   - name: LOGGING_LEVEL_COM_EXAMPLE_EMOJIINCLUSION
     value: DEBUG

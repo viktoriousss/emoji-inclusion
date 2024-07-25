@@ -1,0 +1,11 @@
+apiVersion: services.tanzu.vmware.com/v1
+kind: PreProvisionedService
+metadata:
+    name: shared-postgres
+spec:
+    bindingConnectors:
+    - name: read-write
+      description: Read-write available in all availability targets
+      type: postgres
+      secretRef:
+        name: shared-postgres
