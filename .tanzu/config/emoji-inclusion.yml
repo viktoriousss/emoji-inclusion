@@ -1,0 +1,18 @@
+apiVersion: apps.tanzu.vmware.com/v1
+kind: ContainerApp
+metadata:
+  creationTimestamp: null
+  name: inclusion
+spec:
+  build:
+    buildpacks: {}
+    nonSecretEnv:
+    - name: BP_JVM_VERSION
+      value: "21" #change it to v17 as an example
+    path: ../..
+  nonSecretEnv:
+  - name: LOGGING_LEVEL_COM_EXAMPLE_EMOJIINCLUSION
+    value: DEBUG
+  ports:
+  - name: main
+    port: 8080
